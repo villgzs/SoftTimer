@@ -25,9 +25,10 @@
   // Timer start for a period ( period will begin from the last end moment )
   // It is useful if you want precise average periods. Restart if it have just ellapsed.
   // - Checking the actual state with TimerRun()
+  // - Will not restart before elapsed.
   void SoftTimer::TimerReStart( unsigned long interval ) {
     CurrentTime = TimerIs();
-    StartTime += Timerinterval;
+    if(done) StartTime += Timerinterval;
     Timerinterval = interval; 
     done = false;     
   }
